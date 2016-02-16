@@ -11,8 +11,13 @@
   "devDependencies": {
     "babel-register": "^6.3.13",
     "chokidar-socket-emitter": "^0.3.0",
+    "deep-equal": "^1.0.1",
     "electron-prebuilt": "^0.36.0",
-    "jspm": "^0.16.20"
+    "electron-window-state": "^2.0.0",
+    "jsonfile": "^2.2.3",
+    "jspm": "^0.16.20",
+    "mkdirp": "^0.5.1",
+    "object-assign": "^4.0.1"
   },
   "jspm": {
     "dependencies": {

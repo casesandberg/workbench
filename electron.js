@@ -3,17 +3,28 @@
 const electron = require('electron')
 const app = electron.app
 const BrowserWindow = electron.BrowserWindow
+const windowStateKeeper = require('electron-window-state')
 
 let mainWindow
 
 function createWindow() {
+  let mainWindowState = windowStateKeeper({
+    defaultWidth: 600,
+    defaultHeight: 350,
+  })
+
   mainWindow = new BrowserWindow({
-    width: 300,
-    height: 420,
+    'x': mainWindowState.x,
+    'y': mainWindowState.y,
+    'width': mainWindowState.width,
+    'height': mainWindowState.height,
     'title-bar-style': 'hidden',
     title: 'Felony',
   })
+
   mainWindow.loadURL('file://' + __dirname + '/src/index.html')
+
+  mainWindowState.manage(mainWindow)
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools()
