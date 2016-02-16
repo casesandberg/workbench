@@ -5,9 +5,9 @@ import ReactDOM from 'react-dom'
 
 import 'normalize.css'
 
-// import Project from './components/Project'
+import Workbench from './components/Workbench'
 
 ReactDOM.render(
-  React.createElement('div', {}, 'workbench'),
+  React.createElement(Workbench),
   document.getElementById('root')
 )
