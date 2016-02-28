@@ -5,4 +5,5 @@
   "validateQuoteMarks": null,
   "requireSemicolons": false,
   "disallowSemicolons": true,
+  "requireSpacesInAnonymousFunctionExpression": null
 }
