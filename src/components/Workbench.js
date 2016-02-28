@@ -2,11 +2,17 @@
 
 import React from 'react'
 import ReactCSS from 'reactcss'
-var fs = require('fs')
+import _ from 'lodash'
 
-import Button from '../../examples/Button'
+import spec, { Component } from '../../examples/ButtonSpec'
 
 class Workbench extends React.Component {
+  constructor() {
+    super()
+
+    this.state = spec.contexts[Object.keys(spec.contexts)[0]]
+  }
+
   classes() {
     return {
       'default': {
@@ -38,16 +44,41 @@ class Workbench extends React.Component {
     }
   }
 
+  handleClick = (data) => {
+    this.setState(data)
+  }
+
+  handlePropChange = (data) => {
+    this.setState(data)
+  }
+
   render() {
     return (
       <div is="workbench">
         <div is="sidebar">
           <div is="header">Workbench</div>
+
+          { _.map(spec.contexts, (context, contextName) => {
+            return <div key={ contextName } onClick={ this.handleClick.bind(this, context) }>{ contextName }</div>
+          }) }
+
+          <hr />
+
+            { _.map(spec.props, (props, propName) => {
+              return (
+                <div key={ propName }>
+                  { propName }
+                  { _.map(props, (propValue) => {
+                    return <div key={ propValue } onClick={ this.handlePropChange.bind(this, { [propName]: propValue }) }>- { propValue }</div>
+                  }) }
+                </div>
+              )
+            }) }
         </div>
         <div is="content">
           <div is="render">
 
-            <Button label="Click Me" background="#ddd" color="#333" />
+            <Component {...this.state} />
 
           </div>
         </div>
