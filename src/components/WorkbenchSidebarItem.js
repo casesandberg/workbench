@@ -8,12 +8,18 @@ class WorkbenchSidebarItem extends React.Component {
     return {
       'default': {
         item: {
-
+          color: '#666',
+        },
+        check: {
+          color: '#fff',
         },
       },
       'active': {
         item: {
-          background: '#aeee00',
+          color: '#333',
+        },
+        check: {
+          color: '#333',
         },
       },
     }
@@ -21,7 +27,7 @@ class WorkbenchSidebarItem extends React.Component {
 
   render() {
     return (
-      <div is="item" onClick={ this.props.onClick.bind(this, this.props.data) }>- { this.props.label }</div>
+      <div is="item" onClick={ this.props.onClick.bind(this, this.props.data) }><span is="check">•</span> { this.props.label }</div>
     )
   }
 }

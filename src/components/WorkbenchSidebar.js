@@ -11,7 +11,7 @@ class WorkbenchSidebar extends React.Component {
     return {
       'default': {
         sidebar: {
-
+          padding: '10px',
         },
         header: {
           height: '30px',
@@ -22,6 +22,10 @@ class WorkbenchSidebar extends React.Component {
           borderBottom: '1px solid #ccc',
           textAlign: 'right',
           paddingRight: '10px',
+        },
+        title: {
+          fontWeight: 'bold',
+          marginTop: '10px',
         },
       },
     }
@@ -53,7 +57,7 @@ class WorkbenchSidebar extends React.Component {
         { _.map(this.props.props, (props, propName) => {
           return (
             <div key={ propName }>
-              { propName }
+              <div is="title">{ propName }</div>
               { _.map(props, (propValue) => {
                 return (
                   <WorkbenchSidebarItem
