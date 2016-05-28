@@ -22,7 +22,7 @@ class Workbench extends React.Component {
           display: 'flex',
         },
         sidebar: {
-          width: '200px',
+          width: '220px',
           borderRight: '1px solid #aaa',
         },
         content: {

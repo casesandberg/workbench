@@ -11,7 +11,7 @@ class WorkbenchSidebar extends React.Component {
     return {
       'default': {
         sidebar: {
-          padding: '10px',
+          // padding: '10px',
         },
         header: {
           height: '30px',
@@ -38,7 +38,7 @@ class WorkbenchSidebar extends React.Component {
   render() {
     return (
       <div is="sidebar">
-        <div is="header">Workbench</div>
+        <div is="header">Components . Button</div>
 
         { _.map(this.props.contexts, (context, contextName) => {
           return (
