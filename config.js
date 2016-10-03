@@ -26,7 +26,8 @@ System.config({
     "merge": "npm:merge@1.2.0",
     "normalize.css": "github:necolas/normalize.css@3.0.3",
     "openpgp": "npm:openpgp@1.5.7",
-    "react": "npm:react@0.14.7",
+    "react": "npm:react@0.14.8",
+    "react-addons-clone-with-props": "npm:react-addons-clone-with-props@0.14.8",
     "react-dom": "npm:react-dom@0.14.7",
     "react-redux": "npm:react-redux@4.4.0",
     "reactcss": "github:casesandberg/reactcss@1.0.0",
@@ -37,7 +38,7 @@ System.config({
       "weakee": "npm:weakee@1.0.0"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
-      "assert": "npm:assert@1.3.0"
+      "assert": "npm:assert@1.4.1"
     },
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.6.0"
@@ -76,7 +77,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.2"
+      "process": "npm:process@0.11.9"
     },
     "github:jspm/nodelibs-stream@0.1.0": {
       "stream-browserify": "npm:stream-browserify@1.0.0"
@@ -113,7 +114,10 @@ System.config({
       "minimalistic-assert": "npm:minimalistic-assert@1.0.0",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
     },
-    "npm:assert@1.3.0": {
+    "npm:assert@1.4.1": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "buffer": "github:jspm/nodelibs-buffer@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "npm:util@0.10.3"
     },
     "npm:babel-runtime@5.8.35": {
@@ -373,6 +377,11 @@ System.config({
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
+    "npm:process@0.11.9": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0",
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "vm": "github:jspm/nodelibs-vm@0.1.0"
+    },
     "npm:public-encrypt@4.0.0": {
       "bn.js": "npm:bn.js@4.10.3",
       "browserify-rsa": "npm:browserify-rsa@4.0.0",
@@ -390,8 +399,11 @@ System.config({
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:react-addons-clone-with-props@0.14.8": {
+      "react": "npm:react@0.14.8"
+    },
     "npm:react-dom@0.14.7": {
-      "react": "npm:react@0.14.7"
+      "react": "npm:react@0.14.8"
     },
     "npm:react-redux@4.4.0": {
       "hoist-non-react-statics": "npm:hoist-non-react-statics@1.0.5",
@@ -399,10 +411,10 @@ System.config({
       "lodash": "npm:lodash@4.4.0",
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
-      "react": "npm:react@0.14.7",
+      "react": "npm:react@0.14.8",
       "redux": "npm:redux@3.3.1"
     },
-    "npm:react@0.14.7": {
+    "npm:react@0.14.8": {
       "fbjs": "npm:fbjs@0.6.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },

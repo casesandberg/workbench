@@ -1,24 +1,20 @@
-'use default'
+import { Mock, Example } from '../src/components/index'
+import React from 'react'
+import Button from './Button'
 
-export { default as Component } from './Button'
-
-export default {
-  name: 'Button',
-  contexts: {
-    'Simple': {
-      label: 'Click Me',
-      background: '#ddd',
-      color: '#333',
-    },
-    'CTA': {
-      label: 'DOWNLOAD',
-      background: '#59ABFC',
-      color: '#fff',
-    },
-  },
-  props: {
-    label: ['Click Me', 'Foo Bar', 'YO'],
-    background: ['#333', '#ddd', '#59ABFC'],
-    color: ['#aeee00', '#fff', '#333'],
-  },
+const props = {
+  label: ['Click Me', 'Foo Bar', 'YO'],
+  background: ['#333', '#ddd', '#59ABFC'],
+  color: ['#aeee00', '#fff', '#333'],
 }
+
+export default (
+  <Mock component={ Button } props={ props }>
+    <Example name="Simple">
+      <Button label="Click Me" background="#ddd" color="#333" />
+    </Example>
+    <Example name="CTA">
+      <Button label="DOWNLOAD" background="#59ABFC" color="#fff" />
+    </Example>
+  </Mock>
+)

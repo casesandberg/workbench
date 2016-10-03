@@ -3,7 +3,7 @@
 import React from 'react'
 import ReactCSS from 'reactcss'
 
-import spec, { Component } from '../../examples/ButtonSpec'
+import spec from '../../examples/ButtonSpec'
 
 import WorkbenchSidebar from './WorkbenchSidebar'
 
@@ -11,7 +11,7 @@ class Workbench extends React.Component {
   constructor() {
     super()
 
-    this.state = spec.contexts[Object.keys(spec.contexts)[0]]
+    // this.state = spec.contexts[Object.keys(spec.contexts)[0]]
   }
 
   classes() {
@@ -20,16 +20,6 @@ class Workbench extends React.Component {
         workbench: {
           Absolute: '0 0 0 0',
           display: 'flex',
-        },
-        sidebar: {
-          width: '220px',
-          borderRight: '1px solid #aaa',
-        },
-        content: {
-          flex: '1',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
         },
       },
     }
@@ -42,16 +32,7 @@ class Workbench extends React.Component {
   render() {
     return (
       <div is="workbench">
-        <div is="sidebar">
-          <WorkbenchSidebar {...spec} active={ this.state } onSelect={ this.handleSelect } />
-        </div>
-        <div is="content">
-          <div is="render">
-
-            <Component {...this.state} />
-
-          </div>
-        </div>
+        { spec }
       </div>
     )
   }

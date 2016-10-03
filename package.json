@@ -1,5 +1,5 @@
 {
-  "name": "Workbench",
+  "name": "workbench-cli",
   "version": "0.1.0",
   "main": "electron.js",
   "scripts": {
@@ -30,6 +30,7 @@
       "normalize.css": "github:necolas/normalize.css@^3.0.3",
       "openpgp": "npm:openpgp@^1.4.1",
       "react": "npm:react@^0.14.6",
+      "react-addons-clone-with-props": "npm:react-addons-clone-with-props@^0.14.8",
       "react-dom": "npm:react-dom@^0.14.6",
       "react-redux": "npm:react-redux@^4.1.2",
       "reactcss": "github:casesandberg/reactcss@1.0.0",
@@ -40,5 +41,8 @@
       "babel-runtime": "npm:babel-runtime@^5.8.24",
       "core-js": "npm:core-js@^1.1.4"
     }
+  },
+  "dependencies": {
+    "react-addons-clone-with-props": "^0.14.8"
   }
 }

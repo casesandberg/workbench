@@ -40,7 +40,8 @@ class WorkbenchSidebar extends React.Component {
       <div is="sidebar">
         <div is="header">Components . Button</div>
 
-        { _.map(this.props.contexts, (context, contextName) => {
+        { _.map(this.props.examples, (element) => {
+          return React.cloneElement(element, { sidebar: true })
           return (
             <WorkbenchSidebarItem
               key={ contextName }
@@ -65,7 +66,6 @@ class WorkbenchSidebar extends React.Component {
                     label={ propValue }
                     data={{ [propName]: propValue }}
                     onClick={ this.handleClick }
-                    active={ _.isEqual(this.props.active[propName], propValue) }
                   />
                 )
               }) }
