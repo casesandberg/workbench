@@ -1,6 +1,6 @@
 {
-  "name": "workbench-cli",
-  "version": "0.1.0",
+  "name": "workbench",
+  "version": "1.0.0",
   "main": "electron.js",
   "scripts": {
     "start": "node server",
