@@ -12,6 +12,7 @@ class Workbench extends React.Component {
 
     const composeSidebar = (example) => {
       const component = example.props.component
+      const bench = { width: example.props.width, height: example.props.height }
       const props = example.props.props
       const examples = example.props.children.map((example) => {
         return {
@@ -23,14 +24,21 @@ class Workbench extends React.Component {
       return {
         component,
         props,
-        examples
+        examples,
+        bench
       }
     }
 
     this.spec = composeSidebar(buttonSpec);
     // console.log(this.spec)
 
-    this.state = this.spec.examples[0].props
+    this.state = {
+      props: this.spec.examples[0].props,
+      bench: this.spec.bench || {
+        width: 400,
+        height: 200
+      }
+    }
   }
 
   renderEditItem = (propName, props) => {
@@ -47,14 +55,20 @@ class Workbench extends React.Component {
   }
 
   render() {
+    const handleBenchChange = (param, e) => {
+      this.setState({
+        bench: { ...this.state.bench, [param]: e.target.value }
+      })
+    }
+
     return (
-      <div style={{ display: 'flex', alignItems: 'stretch', position: 'absolute', top: '20px', right: '0', bottom: '0', left: '0' }}>
+      <div style={{ display: 'flex', alignItems: 'stretch', position: 'absolute', top: '20px', right: '0', bottom: '0', left: '0', background: '#fafafa' }}>
         <div style={{ width: '100px' }}>
-          { this.spec.examples.map((example, i) => {
+          { this.spec.examples.map(({ name, props }, i) => {
             const handleClick = () => {
-              this.setState(example.props)
+              this.setState({ props })
             }
-            return <div key={ i } style={ _.isEqual(this.state, example.props) ? { color: 'blue' } : {} } onClick={ handleClick }>{ example.name }</div>
+            return <div key={ i } style={ _.isEqual(this.state.props, props) ? { color: 'blue' } : {} } onClick={ handleClick }>{ name }</div>
           }) }
           -----
           { _.map(this.spec.props, (props, propName) => {
@@ -63,11 +77,11 @@ class Workbench extends React.Component {
                 { propName }
                 { _.map(props, (value, i) => {
                   const handleClick = () => {
-                    this.setState({ [propName]: value })
+                    this.setState({ props: { ...this.state.props, [propName]: value } })
                   }
                   return (
                     <pre key={ i } onClick={ handleClick } style={{ margin: 0 }}>
-                      { this.state[propName] === value ? '* ' + value : '  ' + value }
+                      { this.state.props[propName] === value ? '* ' + value : '  ' + value }
                     </pre>
                   )
                 }) }
@@ -76,8 +90,26 @@ class Workbench extends React.Component {
             )
           }) }
         </div>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1' }}>
-          { React.createElement(this.spec.component, this.state) }
+        <div style={{ display: 'flex', flexDirection: 'column', flex: '1' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: '1' }}>
+            <div style={{ width: this.state.bench.width, height: this.state.bench.height, background: '#fff' }}>
+              { React.createElement(this.spec.component, this.state.props) }
+            </div>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+            <input
+              type="number"
+              style={{ width: '60px' }}
+              value={ this.state.bench.width }
+              onChange={ handleBenchChange.bind(null, 'width') }
+            />
+            <input
+              type="number"
+              style={{ width: '60px' }}
+              value={ this.state.bench.height }
+              onChange={ handleBenchChange.bind(null, 'height') }
+            />
+          </div>
         </div>
       </div>
     )

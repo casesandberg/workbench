@@ -9,7 +9,7 @@ const props = {
 }
 
 export default (
-  <Example component={ Button } props={ props }>
+  <Example component={ Button } props={ props } width={ 200 } height={ 50 }>
     <Example name="Simple">
       <Button label="Click Me" background="#ddd" color="#333" />
     </Example>
