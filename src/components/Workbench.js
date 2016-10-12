@@ -37,6 +37,7 @@ class Workbench extends React.Component {
     const isPropCategory = (props) => {
 
     }
+    return <div />
     return (
       <input
         placeholder={ this.state[propName] }
