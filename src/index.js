@@ -8,10 +8,10 @@ import 'normalize.css'
 import Workbench from './components/Workbench'
 
 ReactDOM.render(
-  React.createElement(Workbench),
+  <Workbench />,
   document.getElementById('root')
 )
 
-export function __reload() {
-  console.clear()
-}
+// export function __reload() {
+//   console.clear()
+// }
