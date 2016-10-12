@@ -4,7 +4,7 @@ import React from 'react'
 import ReactCSS from 'reactcss'
 import _ from 'lodash'
 
-import buttonSpec from '../../examples/ButtonSpec'
+import buttonSpec from '../../examples/BoxSpec'
 
 class Workbench extends React.Component {
   constructor() {
@@ -35,8 +35,8 @@ class Workbench extends React.Component {
     this.state = {
       props: this.spec.examples[0].props,
       bench: this.spec.bench || {
-        width: 400,
-        height: 200
+        width: 'auto',
+        height: 'auto'
       }
     }
   }
@@ -116,4 +116,4 @@ class Workbench extends React.Component {
   }
 }
 
-export default ReactCSS(Workbench)
+export default Workbench

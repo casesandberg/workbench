@@ -43,6 +43,7 @@
     }
   },
   "dependencies": {
-    "react-addons-clone-with-props": "^0.14.8"
+    "react-addons-clone-with-props": "^0.14.8",
+    "reactcss": "^1.0.9"
   }
 }
